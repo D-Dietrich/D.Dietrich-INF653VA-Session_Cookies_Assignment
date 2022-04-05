@@ -1,13 +1,13 @@
 <?php
-if (empty($_GET['firstname'])) {
-    include("view/register_form.php");
-}
-else{
+if (!empty($_GET['firstname'])) {
     $firstName = htmlspecialchars($_GET['firstname']); //Get username if applicable
     if ($firstName != NULL || $firstName != FALSE ) {
         $_SESSION['userID'] = $firstName; 
     }
-    <?php include('view/header.php');
+}
+
+   
+    include('view/header.php');
 
 if(!isset($_SESSION['userID'])){?>
 <form id="myForm" action="." method="GET">
@@ -21,7 +21,4 @@ if(!isset($_SESSION['userID'])){?>
     include('thanks.php');
  }
  include('footer.php');?>
-    <?php
-    }
-
-?>
+   
